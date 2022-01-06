@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Attendance System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <span class="text-center">
+        <h2>Attendance Management System</h2>
+    </span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/images/logo.jpg" alt="" style="width:40px;" class="rounded-pill"> Admin
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin_createstudent.html">Add Students/Teacher</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="admin_viewstudents.html">View Students</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="admin_view_teachers.html">View Teachers</a>
+                    </li>
+
+                </ul>
+
+                <span class="navbar-text">
+                    <a  class="btn btn-danger text-light nav-link " href="#">Logout</a>
+                  </span>
+
+            </div>
+        </div>
+    </nav>
+    <!-- navbar done -->
+
+
+    <!-- registration form -->
+
+    <div class="container">
+        <div class="row justify-content-center mt-5 ">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header text-center mb-3">
+                        <h4>All Students</h4>
+
+                    </div>
+                    <div class="card-body p-2">
+                        <!-- data table -->
+                        <table id="example" class="table table-striped table-bordered " style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Students ID</th>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>Batch</th>
+                                    <th>Email</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- table row -->
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td>61</td>
+                                    <td>61</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-success"> <i class="fas fa-edit    "></i>
+                                        </button>
+                                        <button class="btn btn-danger"> <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <!-- end table row -->
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- END data table -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- end reg -->
+
+
+
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
+
+</body>
+
+</html>
