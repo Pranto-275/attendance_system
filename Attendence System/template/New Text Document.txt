@@ -1,0 +1,27 @@
+<input type="text" placeholder="name"> <br>
+<input type="text" placeholder="dep"> <br>
+<input type="text" placeholder="email"><br>
+<Select id="colorselector">
+   <option value="red" selected>Teacher</option>
+   <option value="yellow">Student</option>
+ 
+</Select>
+<div id="red" class="colors" style="display:none"> 
+<input type="text" placeholder="course"><br>
+</div>
+<div id="yellow" class="colors" style="display:none"> 
+<input type="text" placeholder="semester"><br>
+<input type="text" placeholder="batch"><br>
+
+ </div>
+<div id="blue" class="colors" style="display:none"> blue.. </div>
+
+jquery...
+
+
+    $(function() {
+        $('#colorselector').change(function(){
+            $('.colors').hide();
+            $('#' + $(this).val()).show();
+        });
+    });

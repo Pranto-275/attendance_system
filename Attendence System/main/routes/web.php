@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\admin\adduserController;
+use App\Http\Controllers\admin\adminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\student\studentController;
+use App\Http\Controllers\teacher\teacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +18,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+
+
+
+
+Route::group(['middleware' => ['prevent-back-history']], function () {
+    Route::get('/', function () {
+        return view('auth.login');
+    });
+
+    Auth::routes();
+
+
+    Route::resource('admin', adduserController::class);
+
+
+    Route::get('/teacher', [teacherController::class, 'dashboard'])->name('teacher');
+    Route::get('/student', [studentController::class, 'dashboard'])->name('student');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

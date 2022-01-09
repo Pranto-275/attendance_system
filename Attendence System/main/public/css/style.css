@@ -1,0 +1,42 @@
+.customborder {
+    border-style: solid;
+    border-radius: 15px;
+    padding: 25px;
+    background-color: black;
+    color: white;
+    box-shadow: 5px 5px 8px 7px skyblue;
+}
+
+.selectuser {
+    text-align: center;
+    margin: 5px;
+}
+
+.selectuser a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.selectuser a:hover {
+    color: skyblue;
+    background-color: black;
+    padding: 4px;
+}
+
+
+/* #homesection {
+    background: url('../images/students.jpg') no-repeat center top;
+    background-size: cover;
+    min-height: 500px;
+} */
+
+#homesection {
+    margin-top: -200px;
+}
+
+@media(max-width:767px) {
+    #homesection {
+        margin-top: 0px;
+    }
+}
