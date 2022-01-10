@@ -10,24 +10,16 @@
 
             <h4 class="text-center"><b>Add Students/Teacher Info</b></h4>
             <div class="customborder">
-                <form action="{{ route('admin.store') }}" method="POST">
+                <form action="{{ route('admin.update',$user->id) }}" method="POST">
                     @csrf
-
+                    @method('PUT')
                     <div class="row my-2">
                         <div class="col-md-2 ">
                             <label for=""><b>Name</b></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control form-control-sm" name="name" value="{{ old('name') }}">
-                            <span style="color: red">
-                                @error('name')
-                                {{ $message }}
-                                @enderror
-                               </span>
-                         </div>
-
-
-
+                            <input type="text" class="form-control form-control-sm" name="name" value="{{ $user->name }}">
+                        </div>
                     </div>
 
                     <div class="row my-2">
@@ -35,12 +27,7 @@
                             <label for=""><b>Department</b></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control form-control-sm" name="department" value="{{ old('department') }}">
-                            <span style="color: red">
-                                @error('department')
-                                {{ $message }}
-                                @enderror
-                               </span>
+                            <input type="text" class="form-control form-control-sm" name="department" value="{{ $user->department }}">
                         </div>
                     </div>
 
@@ -49,19 +36,14 @@
                             <label for=""><b>Email</b></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control form-control-sm" name="email" value="{{ old('email') }}" >
-                            <span style="color: red">
-                                @error('email')
-                                {{ $message }}
-                                @enderror
-                               </span>
+                            <input type="text" class="form-control form-control-sm" name="email" value="{{ $user->email }}">
                         </div>
                     </div>
 
 
                     <div class="row mt-2 my-2">
                         <div class="col-md-2">
-                            <label for=""><b>Select User</b></label>
+                            <label for=""><b>Email</b></label>
                         </div>
                         <div class="col-md-8">
                             <Select id="colorselector" class="form-control" name="role_id">
@@ -78,12 +60,7 @@
                             <label for=""><b>Course</b></label>
                         </div>
                         <div class="col-md-8" >
-                            <input type="text" name="course" class="form-control form-control-sm"  value="{{ old('course') }}" >
-                            <span style="color: red">
-                                @error('course')
-                                {{ $message }}
-                                @enderror
-                               </span>
+                            <input type="text" name="course" class="form-control form-control-sm" value="{{ $user->course }}">
                         </div>
                     </div>
 
@@ -98,12 +75,7 @@
                             <label for=""><b>Semester</b></label>
                         </div>
                         <div class="col-md-8" >
-                            <input type="text" name="semester" class="form-control form-control-sm"  value="{{ old('semester') }}" >
-                            <span style="color: red">
-                                @error('semester')
-                                {{ $message }}
-                                @enderror
-                               </span>
+                            <input type="text" name="semester" class="form-control form-control-sm" value="{{ $user->semester }}">
                         </div>
                     </div>
 
@@ -112,12 +84,7 @@
                             <label for=""><b>Batch</b></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control form-control-sm" name="batch"  value="{{ old('batch') }}" >
-                            <span style="color: red">
-                                @error('batch')
-                                {{ $message }}
-                                @enderror
-                               </span>
+                            <input type="text" class="form-control form-control-sm" name="batch" value="{{ $user->batch }}">
                         </div>
                     </div>
 
@@ -130,19 +97,14 @@
                         <label for=""><b>Password</b></label>
                     </div>
                     <div class="col-md-8">
-                        <input type="password" class="form-control form-control-sm" name="password" >
-                        <span style="color: red">
-                            @error('password')
-                            {{ $message }}
-                            @enderror
-                           </span>
+                        <input type="password" class="form-control form-control-sm" name="Password">
                     </div>
                 </div>
 
 
 
 
-                    <button type="submit" class="btn btn-info w-100 text-light"><b>Register</b></button>
+                    <button type="submit" class="btn btn-info w-100 text-light"><b>Update</b></button>
 
                 </form>
             </div>

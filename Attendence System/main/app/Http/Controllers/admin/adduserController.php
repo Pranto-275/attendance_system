@@ -23,10 +23,39 @@ class adduserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         return view('admin.addusers');
     }
+
+
+    public function viewstudent()
+    {
+
+        $user = User::where('reg_id', 'like', '%STU%')->get();
+
+        return view('admin.viewstudents', compact('user'));
+    }
+
+
+
+    public function viewteacher()
+    {
+
+        $user = User::where('reg_id', 'like', '%TEA%')->get();
+
+        return view('admin.viewteachers', compact('user'));
+    }
+
+
+
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -46,6 +75,28 @@ class adduserController extends Controller
      */
     public function store(Request $request)
     {
+
+        if ($request->role_id == 'teacher') {
+            $request->validate([
+                'name' => 'required',
+                'department' => 'required',
+                'email' => 'required|email',
+                'course' => 'required',
+                'password' => 'required|max:12|min:8',
+
+            ]);
+        } else {
+            $request->validate([
+                'name' => 'required',
+                'department' => 'required',
+                'email' => 'required|email',
+                'semester' => 'required',
+                'batch' => 'required',
+                'password' => 'required|max:12|min:8',
+
+            ]);
+        }
+
         $user = new User();
 
         if ($request->role_id == 'teacher') {
@@ -87,7 +138,9 @@ class adduserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('admin.edituser', compact('user'));
     }
 
     /**
@@ -99,7 +152,22 @@ class adduserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->department = $request->department;
+        $user->course = $request->course;
+        $user->semester = $request->semester;
+        $user->batch = $request->batch;
+        $user->password =  Hash::make($request->password);
+        $user->save();
+
+        if (!$request->course == null) {
+            return redirect()->route('admin.viewteacher');
+        } else {
+            return redirect()->route('admin.viewstudent');
+        }
     }
 
     /**
@@ -110,6 +178,7 @@ class adduserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id', $id)->delete();
+        return redirect()->route('admin.viewstudent');
     }
 }
