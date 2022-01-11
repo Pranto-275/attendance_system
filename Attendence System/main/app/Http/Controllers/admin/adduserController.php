@@ -161,7 +161,7 @@ class adduserController extends Controller
         $user->semester = $request->semester;
         $user->batch = $request->batch;
         $user->password =  Hash::make($request->password);
-        $user->save();
+        $user->update();
 
         if (!$request->course == null) {
             return redirect()->route('admin.viewteacher');

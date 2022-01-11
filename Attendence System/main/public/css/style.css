@@ -32,7 +32,7 @@
 } */
 
 #homesection {
-    margin-top: -200px;
+    margin-top: -200px !important;
 }
 
 @media(max-width:767px) {

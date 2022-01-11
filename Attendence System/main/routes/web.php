@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\adduserController;
 use App\Http\Controllers\admin\adminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\student\reportController;
 use App\Http\Controllers\student\studentController;
 use App\Http\Controllers\teacher\teacherController;
 use Illuminate\Support\Facades\Route;
@@ -40,9 +41,9 @@ Route::group(['middleware' => ['prevent-back-history']], function () {
     Route::get('/viewstudents', [adduserController::class, 'viewstudent'])->name('admin.viewstudent');
     Route::get('/viewteachers', [adduserController::class, 'viewteacher'])->name('admin.viewteacher');
 
+    //student
+    Route::resource('student', studentController::class);
+    Route::get('/report', [reportController::class, 'showreport'])->name('student.report');
 
-
-
-    Route::get('/teacher', [teacherController::class, 'dashboard'])->name('teacher');
-    Route::get('/student', [studentController::class, 'dashboard'])->name('student');
+    Route::resource('teacher', teacherController::class);
 });

@@ -43,7 +43,7 @@
 
                     <div class="row mt-2 my-2">
                         <div class="col-md-2">
-                            <label for=""><b>Email</b></label>
+                            <label for=""><b>Select User</b></label>
                         </div>
                         <div class="col-md-8">
                             <Select id="colorselector" class="form-control" name="role_id">
@@ -97,7 +97,7 @@
                         <label for=""><b>Password</b></label>
                     </div>
                     <div class="col-md-8">
-                        <input type="password" class="form-control form-control-sm" name="Password">
+                        <input type="password" class="form-control form-control-sm" name="password">
                     </div>
                 </div>
 

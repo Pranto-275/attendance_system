@@ -20,8 +20,8 @@
 
 
 
-    @includeWhen(Auth::check(), 'layouts.adminnavbar')
-    @includeWhen(Auth::guest(), 'layouts.navbar')
+    @includeWhen(Auth::check(), 'teacher.layouts.teachernavbar')
+    @includeWhen(Auth::guest(), 'teacher.layouts.navbar')
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-    <script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>

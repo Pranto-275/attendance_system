@@ -1,11 +1,8 @@
-<span class="text-center">
-    <h2>Attendance Management System</h2>
-</span>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="/images/logo.jpg" alt="" style="width:40px;" class="rounded-pill"> Pranto
+            <img src="/images/logo.jpg" alt="" style="width:40px;" class="rounded-pill"> {{ Auth::user()->name }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,23 +11,25 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="student_home.html">Home</a>
+                    <a class="nav-link" href="{{ route('student.index') }}">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="student_profile.html">Profile</a>
+                    <a class="nav-link " href="{{ route('student.edit',Auth::user()->id) }}">Profile</a>
                 </li>
 
 
                 <li class="nav-item">
-                    <a class="nav-link " href="student_report.html">Report Section</a>
+                    <a class="nav-link " href="{{ route('student.report') }}">Report Section</a>
                 </li>
 
 
             </ul>
 
-            <span class="navbar-text">
-                <a  class="btn btn-danger text-light nav-link " href="#">Logout</a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit"  class="btn btn-danger text-light nav-link ">Logout</button>
+               </form>
               </span>
 
         </div>
