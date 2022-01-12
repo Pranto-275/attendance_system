@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\teacher;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attendance;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class teacherController extends Controller
 {
@@ -41,6 +43,36 @@ class teacherController extends Controller
 
 
 
+    //show students
+    public function attendance()
+    {
+
+        $department = Auth::user()->department;
+        $lastclass = Attendance::max('class');
+
+        $data = User::where('department', $department)->where('reg_id', 'like', '%STU%')->get();
+        return view('teacher.teacher_attendance', compact('data', 'lastclass'));
+    }
+
+
+    //show report
+    //show students
+    public function showallreport()
+    {
+
+        $course = Auth::user()->course;
+
+        $data = Attendance::with('user')->where('course', $course)->get();
+
+        // $data = User::where('department', $department)->where('reg_id', 'like', '%STU%')->get();
+        return view('teacher.teacher_viewreport', compact('data'));
+    }
+
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -60,7 +92,30 @@ class teacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'class' => 'required',
+            'class' => 'required',
+            'status' => 'required',
+
+        ]);
+
+
+        $no_id = $request->id;
+        $class = $request->class;
+        $status = $request->status;
+        $course = Auth::user()->course;
+
+        for ($i = 0; $i < count($no_id); $i++) {
+            $datasave = [
+                'user_id' => $no_id[$i],
+                'class' => $class,
+                'course' => $course,
+                'status' => $status[$i],
+            ];
+            Attendance::insert($datasave);
+        }
+        return redirect()->back();
     }
 
     /**

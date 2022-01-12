@@ -25,7 +25,7 @@
 
 
             </ul>
-
+            <span>
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit"  class="btn btn-danger text-light nav-link ">Logout</button>

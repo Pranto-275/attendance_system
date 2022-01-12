@@ -166,3 +166,25 @@
 </script>
 
 @endsection
+
+
+@section('sweet')
+
+
+@if (Session::has('useradd'))
+
+<script>
+     swal({
+        title: "Successfully",
+        text:"User Added",
+        icon:"success",
+        button: {
+                text: "okey",
+
+                 },
+
+      });
+</script>
+
+@endif
+@endsection

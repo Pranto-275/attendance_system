@@ -83,3 +83,27 @@
 </script>
 
 @endsection
+
+
+
+
+@section('sweet')
+
+
+@if (Session::has('deleteuser'))
+
+<script>
+     swal({
+        title: "Successfully",
+        text:"Teacher Deleted",
+        icon:"success",
+        button: {
+                text: "okey",
+
+                 },
+
+      });
+</script>
+
+@endif
+@endsection

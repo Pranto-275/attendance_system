@@ -23,19 +23,22 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="teacher_attendance.html">Attendance</a>
+                    <a class="nav-link " href="{{ route('teacher.attendance') }}">Attendance</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="teacher_students_report.html">Report</a>
+                    <a class="nav-link " href="{{ route('teacher.studentreport') }}">Report</a>
                 </li>
 
 
             </ul>
 
-            <span class="navbar-text">
-                <a  class="btn btn-danger text-light nav-link " href="#">Logout</a>
-              </span>
+            <span>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit"  class="btn btn-danger text-light nav-link ">Logout</button>
+                   </form>
+                  </span>
 
         </div>
     </div>

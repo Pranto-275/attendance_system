@@ -69,16 +69,3 @@
 <!-- end table -->
 @endsection
 
-
-@section('script')
-<script>
-
-    $(function() {
-        $('#colorselector').change(function(){
-            $('.users').hide();
-            $('#' + $(this).val()).show();
-        });
-    });
-</script>
-
-@endsection

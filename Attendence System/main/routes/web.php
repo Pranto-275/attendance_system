@@ -48,4 +48,6 @@ Route::group(['middleware' => ['prevent-back-history']], function () {
     //teacher
     Route::resource('teacher', teacherController::class);
     Route::get('/teachershowstudents', [teacherController::class, 'showstudents'])->name('teacher.showstudents');
+    Route::get('/teacherattendance', [teacherController::class, 'attendance'])->name('teacher.attendance');
+    Route::get('/teacherstudentreport', [teacherController::class, 'showallreport'])->name('teacher.studentreport');
 });

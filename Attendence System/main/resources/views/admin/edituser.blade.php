@@ -128,3 +128,26 @@
 </script>
 
 @endsection
+
+
+
+@section('sweet')
+
+
+@if (Session::has('deleteuser'))
+
+<script>
+     swal({
+        title: "Successfully",
+        text:"Edit Successfully",
+        icon:"success",
+        button: {
+                text: "okey",
+
+                 },
+
+      });
+</script>
+
+@endif
+@endsection

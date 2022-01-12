@@ -14,7 +14,7 @@ class reportController extends Controller
 
 
 
-        $data = Attendance::with('user')->get();
+        $data = Attendance::with('user')->where('user_id', Auth::user()->id)->get();
 
 
 

@@ -116,7 +116,7 @@ class adduserController extends Controller
         $user->password =  Hash::make($request->password);
         $user->save();
         $user->attachRole($request->role_id);
-        return back();
+        return back()->with('useradd', "user added Successfully");
     }
 
     /**
@@ -179,6 +179,6 @@ class adduserController extends Controller
     public function destroy($id)
     {
         User::where('id', $id)->delete();
-        return redirect()->route('admin.viewstudent');
+        return back()->with('deleteuser', "user edit Successfully");
     }
 }

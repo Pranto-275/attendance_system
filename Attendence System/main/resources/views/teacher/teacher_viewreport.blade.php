@@ -1,17 +1,15 @@
-@extends('student.layouts.master')
+@extends('teacher.layouts.master')
 
 @section('content')
 
 
 
-  <!-- report page -->
-
-  <div class="container">
+<div class="container">
     <div class="row justify-content-center mt-5 ">
         <div class="col-12">
             <div class="card">
                 <div class="card-header text-center mb-3">
-                    <h4>Student ID: {{ Auth::user()->reg_id  }} </h4>
+                    <h4>All Students</h4>
 
                 </div>
                 <div class="card-body p-2">
@@ -21,29 +19,29 @@
                             <tr>
                                 <th>Students ID</th>
                                 <th>Course</th>
-                                <th>class Number</th>
-                                <th>status</th>
+                                <th>Class Number</th>
+                                <th>Status</th>
 
 
 
                             </tr>
                         </thead>
                         <tbody>
+                         @foreach ($data as $item)
 
-                         @foreach ($data as $data)
-                                <!-- table row -->
+                            <!-- table row -->
                             <tr>
-                                <td>{{ $data->user->reg_id }}</td>
-                                <td>{{ $data->course }}</td>
-                                <td>{{ $data->class }}</td>
-                                <td>{{ $data->status }} </td>
+                                <td>{{ $item->user->reg_id }}</td>
+                                <td>{{ $item->course }}</td>
+                                <td>{{ $item->class }}</td>
+                                <td>{{ $item->status }}</td>
 
 
                             </tr>
 
                             <!-- end table row -->
-                         @endforeach
 
+                        @endforeach
 
                         </tbody>
                     </table>
@@ -56,10 +54,6 @@
         </div>
     </div>
 </div>
-
-
-
-<!-- end reg -->
 
 
 
