@@ -14,7 +14,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="teacher_viewstudents.html">Students</a>
+                    <a class="nav-link " href="{{ route('teacher.edit',Auth::user()->id) }}">Profile</a>
                 </li>
 
 
