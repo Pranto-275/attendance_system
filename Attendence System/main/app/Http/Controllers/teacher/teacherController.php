@@ -5,6 +5,7 @@ namespace App\Http\Controllers\teacher;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class teacherController extends Controller
 {
@@ -24,6 +25,22 @@ class teacherController extends Controller
     {
         return view('teacher.teacher_home');
     }
+
+
+    //show students
+    public function showstudents()
+    {
+
+        $department = Auth::user()->department;
+
+        $data = User::where('reg_id', 'like', '%STU%')
+            ->where('department', '=', $department)->get();
+        return view('teacher.teacher_viewstudents', compact('data'));
+    }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.

@@ -19,7 +19,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link " href="teacher_viewtachers.html">Faculties</a>
+                    <a class="nav-link " href="{{ route('teacher.showstudents') }}">Students</a>
                 </li>
 
                 <li class="nav-item">
